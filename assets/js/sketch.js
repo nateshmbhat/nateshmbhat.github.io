@@ -3,10 +3,12 @@
 let totalwidth = 1000,
     totalheight = 700;
 let mouseDown = 0;
+let canvasWidth  = document.body.clientWidth ; 
+let canvasHeight = document.body.clientHeight ; 
 let pendulumHandler;
 
 function setup() {
-    createCanvas(document.body.clientWidth, document.body.clientHeight + 400);
+    createCanvas(canvasWidth, canvasHeight + 400);
     frameRate(100);
     strokeWeight(2);
     pendulumHandler = new PendulumHandler();
@@ -36,10 +38,8 @@ class PendulumHandler {
 
     constructor() {
         //Default values ; 
-        this.originx = document.body.clientWidth/2  ;
+        this.originx = canvasWidth/2  ;
         this.originy = 350  ;
-        this.canvasWidth = document.body.clientWidth ; 
-        this.canvasHeight = document.body.clientHeight ; 
         this.mass = 0.3 ; this.length = 150 ; this.radius = 35 ; 
         this.pauseAllFlag = false;
         this.pendulumArray = new Array();
@@ -82,6 +82,13 @@ class PendulumHandler {
     resetAll(){
         while(this.pendulumArray.length>0) delete this.pendulumArray.pop() ; 
 
+
+        $("input[name='length']")[0].value = "" ; 
+        $("input[name='mass']")[0].value ="" ; 
+        $("input[name='radius']")[0].value = "" ; 
+        $("input[name='originx']")[0].value = "" ; 
+        $("input[name='originy']")[0].value = "" ;
+
         this.pendulumArray.push(new Pendulum(this.originx , this.originy , this.length , this.radius  , this.mass)) ; 
     }
 
@@ -94,10 +101,10 @@ class PendulumHandler {
 
     addPendulum({originx = 500, originy = 350, length = 150, radius = 35 , mass = 3 } ) {
 
-        if((originy+length + radius > this.clientHeight ) || (originx+length + radius > this.clientWidth))
+        if((originy+length + radius > canvasHeight ) || (originx+length + radius > this.canvasWidth))
         {
-           if(originy+ length+ radius > this.clientHeight){ this.clientHeight = originy+ length+ radius ; resizeCanvas(this.clientWidth , this.clientHeight) ; }
-           if(originx+ length+ radius > this.clientWidth)  {this.clientWidth = originx + length + radius ; resizeCanvas(this.clientWidth , this.clientHeight) ; }
+           if(originy+ length+ radius > this.canvasHeight){ this.canvasHeight = originy+ length+ radius ; resizeCanvas(this.canvasWidth , this.canvasHeight) ; }
+           if(originx+ length+ radius > this.canvasWidth)  {this.canvasWidth = originx + length + radius ; resizeCanvas(this.canvasWidth , this.canvasHeight) ; }
         }
 
         console.log(Number(originx) || this.originx, Number(originy) || this.originy, Number(length)||this.length, Number(radius)||this.radius, Number(mass)||this.mass) ; 
@@ -130,7 +137,6 @@ class PendulumHandler {
         for(let i = this.pendulumArray.length -1 ; i>=0  ; i--)
         {
             if(this.pendulumArray[i].handleMousePress(x, y))
-                // continue ; 
                 break ; 
         }
     }
@@ -147,7 +153,6 @@ class PendulumHandler {
 class Pendulum {
 
     constructor(originx, originy, length, radius , mass) {
-
         this.length = 150, this.angle = PI / 2;
         this.angVel = 0, this.angAcc = 0;
         this.mass = mass;
@@ -193,6 +198,13 @@ class Pendulum {
         return sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
     }
 
+    handleCanvasResize(){
+        //call this on mouseRelease
+        canvasHeight = max(this.length + this.radius + this.origin.y ,canvasHeight ) ; 
+        canvasWidth = max(this.length + this.radius + this.origin.x , canvasWidth) ;  
+        resizeCanvas(canvasWidth , canvasHeight) ; 
+    }
+
 
     handleMouseDrag(x, y) {
         if (!this.mouseLockedFlag) return;
@@ -224,12 +236,15 @@ class Pendulum {
 
 
     handleMouseRelease(x, y) {
-        this.handleMouseDrag(x, y);
-        this.stopUpdatingflag = false;
-        this.angle = atan((this.bob.x - this.origin.x) / (this.bob.y - this.origin.y));
-        if (this.bob.y < this.origin.y) this.angle += PI;
-        console.log("this.angle = " + this.angle);
-        this.mouseLockedFlag = false;
+        if(this.mouseLockedFlag)
+        {
+            this.handleCanvasResize() ; 
+            this.handleMouseDrag(x, y);
+            this.stopUpdatingflag = false;
+            this.angle = atan((this.bob.x - this.origin.x) / (this.bob.y - this.origin.y));
+            if (this.bob.y < this.origin.y) this.angle += PI;
+            this.mouseLockedFlag = false;
+        }
     }
 
 
