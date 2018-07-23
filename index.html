@@ -58,7 +58,9 @@
 
 
 <body class="bodyBackground">
+    <script src="/assets/js/snowstorm.js"></script>
     <script src="/assets/js/mdb.min.js"></script>
+
     <div class="card text-center p-2">
         <h1 class="fancy" style="font-size:400%;">
             <i class="fa fa-cog fa-spin" style="color:orangered"></i> Fun Physics </h1>
@@ -123,23 +125,6 @@
         </center>
     </div>
 
-
-    <script src="/assets/js/snowFall.js"></script>
-    <script>
-        $(document).snowfall({
-            flakeCount: 80,
-            maxSpeed: 7,
-            shadow: true,
-        });
-
-        $("div.projectCard").on('mouseenter', event => {
-            $(event.delegateTarget).find('.btn-primary').removeClass('btn-primary').addClass("btn-secondary");
-        })
-        $("div.projectCard").on('mouseleave', event => {
-            console.log('triggered');
-            $(event.delegateTarget).find('.btn-secondary').removeClass('btn-secondary').addClass("btn-primary");
-        })
-    </script>
 
 
 </body>
