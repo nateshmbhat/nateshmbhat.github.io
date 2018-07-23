@@ -2,101 +2,145 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Simple Pendulum</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <head>
+        <!-- INCLUDE ALL THE SCRIPTS AND CSS from this FILE  -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- Bootstrap core CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Material Design Bootstrap -->
+        <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/css/mdb.min.css" rel="stylesheet"> -->
+
+        <link href="/assets/css/mdb.min.css" rel="stylesheet">
+
+        <!-- JQuery -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!-- Bootstrap tooltips -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
+        <!-- Bootstrap core JavaScript -->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+        <!-- MDB core JavaScript -->
+        <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/js/mdb.min.js"></script> -->
 
 
-    <link rel="stylesheet" href="assets/css/mdb.min.css">
+        <link rel="stylesheet" href="/assets/css/animate.css">
+        </script>
+        <!-- <link rel="stylesheet" href="{% static '/assets/css/customstyle.css' %}"></script> -->
+        <!-- <link rel="stylesheet" href = "assets/css/style.css"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+        <style>
+            .fancy {
+                font-family: 'Times New Roman', Times, serif;
+            }
 
+            .borderstuff {
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                border-width: 30mm;
+                border-radius: 10cm;
+            }
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+            .bodyBackground {
+                background: linear-gradient(gray, darkgray);
+                background-attachment: fixed;
+            }
 
-    <style>
-        .fancy {
-            font-family: 'Times New Roman', Times, serif;
-        }
-
-        .borderstuff {
-            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            border-width: 30mm;
-            border-radius: 10cm;
-        }
-    </style>
+            .projectCard:hover {
+                transition: all 0.3s;
+                color: white;
+                background-color: rgb(24, 24, 24);
+                box-shadow: 20px 10px 45px black;
+            }
+        </style>
+    </head>
 </head>
 
 
-<body>
-
-
-    <div class="container">
-        <div class="jumbotron text-center">
-            <h2 class="fancy">Simple Pendulum simulation&nbsp;
-                <i style="color:darkgreen" class="fa fa-book"></i>
-            </h2>
-        </div>
+<body class="bodyBackground">
+    <script src="/assets/js/mdb.min.js"></script>
+    <div class="card text-center p-2">
+        <h1 class="fancy" style="font-size:400%;">
+            <i class="fa fa-cog fa-spin" style="color:orangered"></i> Fun Physics </h1>
     </div>
 
+    <div class="container text-center m-5">
+        <center>
+            <div class="row justify-content-center">
+                <div class="col">
+                    <div class="card m-5 hoverable projectCard" style="width: 22rem;">
+                        <!-- Card image -->
+                        <div class="view overlay">
+                            <img class="card-img-top" src="/assets/images/simplePendulum.gif" alt="Card image cap">
+                            <a href="#!">
+                                <div class="mask rgba-white-slight waves-effect"></div>
+                            </a>
+                        </div>
 
-    <div class="container text-center animated zoomIn">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div id='addbtn' class="btn  btn-primary">Add Pendulum</div>
-                </div>
-                <div class="col">
-                    <div class="btn btn-warning" id='removebtn'>Remove Pendulum</div>
-                </div>
-                <div class="col">
-                    <div class="btn  btn-danger" id='resetbtn'>Reset All</div>
+                        <!-- Card content -->
+                        <div class="card-body">
+
+                            <!-- Title -->
+                            <h4 class="card-title">Multiple Pendulum Simulation</h4>
+                            <!-- Text -->
+                            <p class="card-text"> Simulate the visual effects of multiple user interactive simple pendulums with assumed physical
+                                constants .</p>
+                            <!-- Button -->
+                            <a href="Simple Pendulum/" class="btn btn-primary waves-effect waves-light">Visit</a>
+
+                        </div>
+
+                    </div>
                 </div>
 
+                <div class="col">
+                    <div class="card m-5 hoverable projectCard" style="width: 22rem;">
+
+                        <!-- Card image -->
+                        <div class="view overlay">
+                            <img class="card-img-top" src="/assets/images/gravity.gif" alt="Gravity">
+                            <a href="#!">
+                                <div class="mask rgba-white-slight waves-effect"></div>
+                            </a>
+                        </div>
+
+                        <!-- Card content -->
+                        <div class="card-body">
+
+                            <!-- Title -->
+                            <h4 class="card-title">Gravity</h4>
+                            <!-- Text -->
+                            <p class="card-text"> Simulation of mutual gravitational force between particles of variable sizes . The particles
+                                when collide follow momentum conservation and their colors also combine to form the new combined
+                                color.</p>
+                            <!-- Button -->
+                            <a href="Gravity/" class="btn btn-primary waves-effect waves-light">Visit</a>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-
-    <div class="container mt-5">
-        <div class="text-center">
-            <center>
-                <div class="row">
-                    <div class="col">
-                        <input name="length" type="number" placeholder="Length ">
-                    </div>
-                    <div class="col">
-                        <input type="number" max="1" maxlength="1" step="0.01" name="mass" placeholder="Bob Mass ">
-                    </div>
-                    <div class="col">
-                        <input type="number" name="radius" placeholder="Bob radius ">
-                    </div>
-                    <div class="col">
-                        <input type="number" name="originx" placeholder="Origin X">
-                    </div>
-                    <div class="col">
-                        <input type="number" name="originy" placeholder="Origin Y">
-                    </div>
-                </div>
-
-        </div>
         </center>
     </div>
 
-    </div>
 
+    <script src="/assets/js/snowFall.js"></script>
+    <script>
+        $(document).snowfall({
+            flakeCount: 80,
+            maxSpeed: 7,
+            shadow: true,
+        });
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
+        $("div.projectCard").on('mouseenter', event => {
+            $(event.delegateTarget).find('.btn-primary').removeClass('btn-primary').addClass("btn-secondary");
+        })
+        $("div.projectCard").on('mouseleave', event => {
+            console.log('triggered');
+            $(event.delegateTarget).find('.btn-secondary').removeClass('btn-secondary').addClass("btn-primary");
+        })
+    </script>
 
-    <script src="assets/js/sketch.js"></script>
 
 </body>
 

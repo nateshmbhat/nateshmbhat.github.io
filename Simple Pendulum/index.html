@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Simple Pendulum</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <link rel="stylesheet" href="/assets/css/mdb.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <style>
+        .fancy {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .borderstuff {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            border-width: 30mm;
+            border-radius: 10cm;
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h2 class="fancy">Simple Pendulum simulation&nbsp;
+                <i style="color:darkgreen" class="fa fa-book"></i>
+            </h2>
+        </div>
+    </div>
+
+
+    <div class="container text-center animated zoomIn">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div id='addbtn' class="btn  btn-primary">Add Pendulum</div>
+                </div>
+                <div class="col">
+                    <div class="btn btn-warning" id='removebtn'>Remove Pendulum</div>
+                </div>
+                <div class="col">
+                    <div class="btn  btn-danger" id='resetbtn'>Reset All</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="text-center">
+            <center>
+                <div class="row">
+                    <div class="col">
+                        <input name="length" type="number" placeholder="Length ">
+                    </div>
+                    <div class="col">
+                        <input type="number" max="1" maxlength="1" step="0.01" name="mass" placeholder="Bob Mass ">
+                    </div>
+                    <div class="col">
+                        <input type="number" name="radius" placeholder="Bob radius ">
+                    </div>
+                    <div class="col">
+                        <input type="number" name="originx" placeholder="Origin X">
+                    </div>
+                    <div class="col">
+                        <input type="number" name="originy" placeholder="Origin Y">
+                    </div>
+                </div>
+
+        </div>
+        </center>
+    </div>
+
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
+
+    <script src="sketch.js"></script>
+
+</body>
+
+</html>
