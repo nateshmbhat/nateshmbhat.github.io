@@ -137,6 +137,16 @@
     </div>
 
 
+    <script>
+         $("div.projectCard").on('mouseenter', event => {
+            $(event.delegateTarget).find('.btn-primary').removeClass('btn-primary').addClass("btn-secondary");
+        }) ; 
+
+        $("div.projectCard").on('mouseleave', event => {
+            console.log('triggered');
+            $(event.delegateTarget).find('.btn-secondary').removeClass('btn-secondary').addClass("btn-primary");
+        })        
+    </script>
 
 </body>
 
