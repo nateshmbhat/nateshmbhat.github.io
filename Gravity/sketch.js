@@ -1,8 +1,9 @@
-/// <reference path="./../assets/js/p5/p5.global-mode.d.ts" />
+/// <reference path="../assets/js/p5/p5.global-mode.d.ts" />
+
 
 let mouseDown = 0;
-let canvasWidth =  3000//screen.availWidth ; 
-let canvasHeight = 1540 //screen.availHeight ; 
+let canvasWidth =  window.innerWidth; 
+let canvasHeight = window.innerHeight ; 
 let environ;
 
 function setup() {
@@ -36,13 +37,14 @@ class Environment {
     constructor() {
         this.mouseLockedFlag = false; 
         this.objectsArray = new Set() ;  
+        this.velocityLimit = 30 ; 
         this.forcesArray = [] ;
         this.totalAreaOfObjects = 0 ;
-        this.boundLeft = 0;
-        this.boundRight = canvasWidth ;
+        this.boundLeft = 1;
+        this.boundRight = canvasWidth-1 ;
         this.mouseBall = new MouseBall() ; 
-        this.boundTop = 0;
-        this.boundBottom = canvasHeight ;
+        this.boundTop = 0 ;
+        this.boundBottom = canvasHeight -100 ;
         this.gravitationalAcceleration = new createVector(0  , 0.1)  ; 
         this.gravityEnabledFlag = false ; 
         this.G = 0.5 ; 
@@ -54,8 +56,7 @@ class Environment {
         background(255) ; 
         push();
         stroke(0) ;
-        strokeWeight(10) ; 
-        rect(0,0,canvasWidth , canvasHeight) ; 
+        rect(0,0,this.boundRight, this.boundBottom) ; 
         pop() ; 
         this.forcesArray.forEach(force=>{
             this.applyForce(force) ; 
@@ -91,7 +92,7 @@ class Environment {
 
 
     addBall(ball) {
-        ball.setVelocityLimit(50) ; 
+        ball.setVelocityLimit(this.velocityLimit) ; 
         this.totalAreaOfObjects+=ball.radius*PI*ball.radius ;
         this.objectsArray.add(ball);
     }
@@ -255,7 +256,7 @@ class Ball {
 class MouseBall{
     constructor(){
         this.mouseLockedFlag = false; 
-        this.radius = 0 ; 
+        this.radius = 1.5 ; 
         this.radiusStep  = 0.25 ;
         this.colorR = random(0,255) ; 
         this.colorG = random(0,255) ; 

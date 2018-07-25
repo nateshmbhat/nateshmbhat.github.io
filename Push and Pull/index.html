@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Simple Pendulum</title>
+    <title>Push And Pull</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -26,7 +26,6 @@
     <style>
         .fancy {
             font-family: 'Times New Roman', Times, serif;
-            font-size: 500%;
         }
 
         .borderstuff {
@@ -38,28 +37,17 @@
 </head>
 
 
-<body style="overflow-y: hidden">
+<body style="overflow-y:hidden;">
 
     <div class="container">
-        <div class="card text-center">
-            <h1 >Gravity
-                <i style="color:brown" class="fa fa-bolt"></i>
-            </h1>
+        <div class="card text-center mb-0">
+            <h2 class="fancy">
+            <i style="color:darkorange" class="fa fa-backward"></i>
+                Push and Pull
+                <i style="color:darkgreen" class="fa fa-forward"></i>
+            </h2>
         </div>
-
-
-        <div class="row">
-            <div class="col-1 text-right">
-                <p style="font-weight:bold ;font-size:150%;display:inline" for="G">G</p>
-            </div>
-            <div class="col-11">
-                <form class="range-field" style="display: inline;">
-                    <input style="display: inline;" id="G" name="G" type="range" min="0" max="100" step="0.01" value="1" />
-                </form>
-
-            </div>
-        </div>
-    </div>
+    </div> 
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
