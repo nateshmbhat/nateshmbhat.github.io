@@ -7,11 +7,14 @@
     "react-dom": "^16.6.3",
     "react-scripts": "2.1.1"
   },
+  "homepage": "https://nateshmbhat.github.io/portfolio",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy" : "npm run build" , 
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -23,6 +26,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@material-ui/core": "^3.5.1"
+    "@material-ui/core": "^3.5.1",
+    "gh-pages": "^2.0.1"
   }
 }
