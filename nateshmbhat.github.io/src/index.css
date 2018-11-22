@@ -12,3 +12,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+
+.projectCard:hover{
+  transition: all 0.3s ; 
+  color:white ;
+  background-color: rgb(24,24,24) ; 
+  box-shadow: 20px 10px 45px black ; 
+}

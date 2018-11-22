@@ -34,7 +34,7 @@ class HomePage extends Component{
         return(
             <>
                 <Grid container justify="space-evenly" alignContent="center" alignItems="center" >
-                    {projects.map(project=><ProjectCard {...project}/>)}                
+                    {projects.map(project=><ProjectCard style={{flex:1}} {...project}/>)}                
                 </Grid>
             </>
         );
@@ -62,10 +62,9 @@ class ProjectCard extends Component{
 
         return ( 
             <div className="col col-xl-4 col-lg-6 col-sm-12 col-12">
-                <div className="card m-5 hoverable" 
+                <div className="card m-5 hoverable projectCard" 
                 onMouseOver={e=>this.setHover(true)} 
-                onMouseLeave={e=>this.setHover(false)}  
-                style={state.hover && hoverStyle || {}} >
+                onMouseLeave={e=>this.setHover(false)}  >
 
                     {/* <!-- Card image --> */}
                     <div className="view overlay">
