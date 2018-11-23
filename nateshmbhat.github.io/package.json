@@ -7,7 +7,6 @@
     "react-dom": "^16.6.3",
     "react-scripts": "2.1.1"
   },
-  "homepage": "https://nateshmbhat.github.io/portfolio",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
