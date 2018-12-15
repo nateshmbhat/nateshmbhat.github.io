@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import HomePage  from './components/Home' ; 
-
+import RootHomePage  from './components/Home' ; 
 class App extends Component {
   render() {
     return (
-      <HomePage/>
+      <RootHomePage/>
     );
   }
 }
