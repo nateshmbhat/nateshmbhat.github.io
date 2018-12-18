@@ -45,7 +45,7 @@ class ProjectCard extends Component{
                     {/* <!-- Card image --> */}
                     <div className="view overlay">
                         <img className="card-img-top" src={props.imagePath} alt="Card image cap"/>
-                        <a href="#!">
+                        <a>
                             <div className="mask rgba-white-slight waves-effect"></div>
                         </a>
                     </div>
@@ -56,8 +56,8 @@ class ProjectCard extends Component{
                         {/* <!-- Title --> */}
                         <h4 className="card-title">{props.title}</h4>
                         {/* <!-- Text --> */}
-                        {props.oneLineDesc && <p className="card-text">{props.oneLineDesc}</p>}
-                        <p className="card-text"> { props.description} </p>
+                        {props.shortDesc && <p className="card-text">{props.shortDesc}</p>}
+                        <p className="card-text"> { props.longDesc} </p>
                         {/* <!-- Button --> */}
                         <a href={props.demoLink} className={`btn btn-primary waves-effect waves-light ${state.hover && 'btn-secondary'}`} >Visit</a>
                     </div>
