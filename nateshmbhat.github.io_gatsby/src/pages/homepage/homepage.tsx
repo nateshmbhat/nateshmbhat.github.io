@@ -1,50 +1,29 @@
 import React, { Component, ReactNode } from "react"
 import {
-  GithubIcon,
-  FacebookIcon,
-  StackOverflowIcon,
+  ProfileIconBuilder,
 } from "../../components/profile_icons/profile_icons"
 import { motion } from "framer-motion"
 import { AppMathUtil } from "../../utils/app_util"
-import { IconButton } from "@material-ui/core"
-import { Link } from "gatsby"
+import { AnimatedProfileIcon } from "./components/profile_icon_animated_button"
+import { ProfileSite } from "../../types/types"
 
 const HomePage = () => {
   const allIcons = [
-    <GithubIcon size={100} />,
-    <GithubIcon size={100} />,
-    <GithubIcon size={100} />,
-    <GithubIcon size={100} />,
-    <GithubIcon size={100} />,
-    <GithubIcon size={100} />,
+    <ProfileIconBuilder profileSite={ProfileSite.github}/> , 
+    <ProfileIconBuilder profileSite={ProfileSite.github}/> , 
+    <ProfileIconBuilder profileSite={ProfileSite.github}/> , 
+    <ProfileIconBuilder profileSite={ProfileSite.github}/> , 
+    <ProfileIconBuilder profileSite={ProfileSite.github}/> , 
+    <ProfileIconBuilder profileSite={ProfileSite.github}/> , 
   ]
 
   const buildAllIcons = (): ReactNode => {
     return allIcons.map((icon, index) => {
-      let totalAngle = 360
-      let anglePerIcon = totalAngle / allIcons.length
+      let anglePerIcon = 360/ allIcons.length
       let maxDistance = 200
-      console.log(
-        AppMathUtil.getOffsetFromAngle(anglePerIcon * index, maxDistance)
-      )
-      return (
-        <motion.div
-          key={index}
-          animate={{
-            ...AppMathUtil.getOffsetFromAngle(
-              anglePerIcon * index,
-              maxDistance
-            ),
-            scale: 1,
-          }}
-          initial={{ scale: 0.5 }}
-          transition={{ duration: 1 }}
-        >
-          <IconWrapper key={index} index={index}>
-            {icon}
-          </IconWrapper>
-        </motion.div>
-      )
+      let iconPosition = AppMathUtil.getOffsetFromAngle( anglePerIcon * index, maxDistance)
+
+      return <AnimatedProfileIcon position={iconPosition} icon={icon} />
     })
   }
 
@@ -72,22 +51,8 @@ const HomePage = () => {
   )
 }
 
-const IconWrapper = ({ children, index }) => {
-  console.log("children :>> ", children)
-  return (
-    <>
-      <span
-        className="svg-shadow center-absolute"
-        style={{ position: "absolute" }}
-      >
-        <motion.div animate={{rotate:-30}} transition={{duration:2}}>
-        <Link className="a-nostyle" to="/homepage/homepage">
-          <IconButton>{children ?? ""}</IconButton>
-        </Link>
-        </motion.div>
-      </span>
-    </>
-  )
+const AnimatedProfileIcons = ()=>{
+
 }
 
 export default HomePage

@@ -6,6 +6,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@material-ui/core": "^4.10.0",
+    "@types/styled-components": "^4.1.19",
     "eslint": "^7.1.0",
     "framer-motion": "^1.11.0",
     "gatsby": "^2.21.37",
