@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Switch, Route , Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core';
 
 const style = {
@@ -10,7 +9,9 @@ const style = {
 class HomePage extends Component {
     render() {
         return <>
+        <div style={{backgroundColor : 'lightblue' , height : '100vh'}}>
 
+        </div>
         </>
     }
 }
