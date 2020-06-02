@@ -1,32 +1,11 @@
 import React, { Component, ReactNode } from "react"
-import {
-  ProfileIconBuilder,
-} from "../../components/profile_icons/profile_icons"
+import { ProfileIconBuilder } from "../../components/profile_icons/profile_icons"
 import { motion } from "framer-motion"
 import { AppMathUtil } from "../../utils/app_util"
 import { AnimatedProfileIcon } from "./components/profile_icon_animated_button"
 import { ProfileSite } from "../../types/types"
 
 const HomePage = () => {
-  const allIcons = [
-    <ProfileIconBuilder profileSite={ProfileSite.github}/> , 
-    <ProfileIconBuilder profileSite={ProfileSite.github}/> , 
-    <ProfileIconBuilder profileSite={ProfileSite.github}/> , 
-    <ProfileIconBuilder profileSite={ProfileSite.github}/> , 
-    <ProfileIconBuilder profileSite={ProfileSite.github}/> , 
-    <ProfileIconBuilder profileSite={ProfileSite.github}/> , 
-  ]
-
-  const buildAllIcons = (): ReactNode => {
-    return allIcons.map((icon, index) => {
-      let anglePerIcon = 360/ allIcons.length
-      let maxDistance = 200
-      let iconPosition = AppMathUtil.getOffsetFromAngle( anglePerIcon * index, maxDistance)
-
-      return <AnimatedProfileIcon position={iconPosition} icon={icon} />
-    })
-  }
-
   return (
     <>
       <div
@@ -44,15 +23,37 @@ const HomePage = () => {
             left: "50%",
           }}
         >
-          {buildAllIcons()}
+          <CircularAnimatedProfileIcons/>
+
         </motion.div>
       </div>
     </>
   )
 }
 
-const AnimatedProfileIcons = ()=>{
+const CircularAnimatedProfileIcons = () => {
+  const allIcons = [
+    ProfileSite.github , 
+    ProfileSite.facebook,
+    ProfileSite.dev,
+    ProfileSite.facebook  , 
+    ProfileSite.hackerrank ,
+    ProfileSite.instagram , 
+    ProfileSite.linkedIn , 
+    ProfileSite.stackoverflow , 
+    ProfileSite.medium , 
+  ].map(site=><ProfileIconBuilder profileSite={site} />)
 
+  return allIcons.map((icon, index) => {
+    let anglePerIcon = 360 / allIcons.length
+    let maxDistance = 200
+    let iconPosition = AppMathUtil.getOffsetFromAngle(
+      anglePerIcon * index,
+      maxDistance
+    )
+
+    return <AnimatedProfileIcon position={iconPosition} icon={icon} />
+  })
 }
 
 export default HomePage

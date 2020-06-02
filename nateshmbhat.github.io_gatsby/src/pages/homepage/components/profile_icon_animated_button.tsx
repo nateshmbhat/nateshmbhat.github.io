@@ -27,7 +27,7 @@ export const AnimatedProfileIcon = ({
       initial={{ scale: startScale }}
       transition={{ duration: translateDuration }}
     >
-      <span
+      <motion.span
         className="svg-shadow center-absolute"
         style={{ position: "absolute" }}
       >
@@ -39,7 +39,7 @@ export const AnimatedProfileIcon = ({
             <IconButton>{icon}</IconButton>
           </Link>
         </motion.div>
-      </span>
+      </motion.span>
     </motion.div>
   )
 }

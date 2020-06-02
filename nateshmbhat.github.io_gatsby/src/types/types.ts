@@ -10,7 +10,6 @@ export enum ProfileSite {
     stackoverflow,
     github,
     facebook,
-    stackexchange,
     hackerrank,
     instagram,
     twitter,
