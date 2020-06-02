@@ -7,15 +7,16 @@ export interface ProjectType {
 }
 
 export enum ProfileSite {
-    stackoverflow,
-    github,
-    facebook,
-    hackerrank,
-    instagram,
-    twitter,
-    medium,
-    dev,
-    linkedIn
+  stackoverflow,
+  github,
+  facebook,
+  hackerrank,
+  instagram,
+  twitter,
+  medium,
+  dev,
+  linkedIn,
+  youtube
 }
 
 export interface ProfileType {

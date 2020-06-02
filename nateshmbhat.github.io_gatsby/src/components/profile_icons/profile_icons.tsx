@@ -8,6 +8,7 @@ import { HackerRankSvg } from "../../static/images/hackerrank"
 import { LinkedInSvg } from "../../static/images/linkedin"
 import { InstagramSvg } from "../../static/images/instagram"
 import { TwitterSvg } from "../../static/images/twitter"
+import { YoutubeSvg } from "../../static/images/youtube"
 import { ProfileSite } from "../../types/types"
 
 const ProfileIconBuilder = ({
@@ -24,28 +25,70 @@ const ProfileIconBuilder = ({
       return <GithubSvg style={svgStyle} />
 
     case ProfileSite.stackoverflow:
-      return <StackOverFlowSvg style={svgStyle} />
+      return <span
+          style={{
+            ...svgStyle ,  
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <StackOverFlowSvg style={{ height: 85, width: 85 }} />
+        </span>
 
     case ProfileSite.dev:
       return <DevSvg style={svgStyle} />
 
     case ProfileSite.facebook:
-      return <FacebookSvg style={svgStyle} />
+      return <FacebookSvg style={{ ...svgStyle, fill: "rgb(64,101,174)" }} />
 
     case ProfileSite.instagram:
-      return <InstagramSvg style={svgStyle} />
+      return <span
+          style={{
+            ...svgStyle ,  
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <InstagramSvg style={{ height: 85, width: 85}} />
+        </span>
+
 
     case ProfileSite.medium:
-      return <MediumSvg style={svgStyle} />
+      return (
+        <span
+          style={{
+            ...svgStyle ,  
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <MediumSvg style={{ height: 85, width: 85 }} />
+        </span>
+      )
 
     case ProfileSite.hackerrank:
-      return <HackerRankSvg style={svgStyle} />
+      return <HackerRankSvg style={{ ...svgStyle, fill: "forestgreen" }} />
 
     case ProfileSite.linkedIn:
-      return <LinkedInSvg style={svgStyle} />
+        return <span
+          style={{
+            ...svgStyle ,  
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <LinkedInSvg style={{ height: 85, width: 85 , fill : 'rgb(1,126,180)' }} />
+        </span>
 
     case ProfileSite.twitter:
-      return <TwitterSvg style={svgStyle} />
+      return <TwitterSvg style={{ ...svgStyle, fill: "deepskyblue" }} />
+
+    case ProfileSite.youtube:
+      return <YoutubeSvg style={{ ...svgStyle, fill: "red" }} />
 
     default:
       return <GithubSvg style={svgStyle} />

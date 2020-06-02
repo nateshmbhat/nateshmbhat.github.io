@@ -1,4 +1,8 @@
 
+body{
+    background-color: mediumpurple;
+}
+
 .svg-shadow{
     background: whitesmoke;
     /* box-shadow: 10px 10px 10px black ; */

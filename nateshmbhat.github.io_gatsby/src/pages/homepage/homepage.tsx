@@ -23,8 +23,7 @@ const HomePage = () => {
             left: "50%",
           }}
         >
-          <CircularAnimatedProfileIcons/>
-
+          <CircularAnimatedProfileIcons />
         </motion.div>
       </div>
     </>
@@ -33,27 +32,31 @@ const HomePage = () => {
 
 const CircularAnimatedProfileIcons = () => {
   const allIcons = [
-    ProfileSite.github , 
+    ProfileSite.github,
     ProfileSite.facebook,
     ProfileSite.dev,
-    ProfileSite.facebook  , 
-    ProfileSite.hackerrank ,
-    ProfileSite.instagram , 
-    ProfileSite.linkedIn , 
-    ProfileSite.stackoverflow , 
-    ProfileSite.medium , 
-  ].map(site=><ProfileIconBuilder profileSite={site} />)
+    ProfileSite.hackerrank,
+    ProfileSite.twitter,
+    ProfileSite.youtube,
+    ProfileSite.instagram,
+    ProfileSite.linkedIn,
+    ProfileSite.stackoverflow,
+    ProfileSite.medium,
+  ].map(site => <ProfileIconBuilder profileSite={site} />)
 
-  return allIcons.map((icon, index) => {
-    let anglePerIcon = 360 / allIcons.length
-    let maxDistance = 200
-    let iconPosition = AppMathUtil.getOffsetFromAngle(
-      anglePerIcon * index,
-      maxDistance
-    )
-
-    return <AnimatedProfileIcon position={iconPosition} icon={icon} />
-  })
+  return (
+    <>
+      {allIcons.map((icon, index) => {
+        let anglePerIcon = 360 / allIcons.length
+        let maxDistance = 200
+        let iconPosition = AppMathUtil.getOffsetFromAngle(
+          anglePerIcon * index,
+          maxDistance
+        )
+        return <AnimatedProfileIcon position={iconPosition} icon={icon} />
+      })}
+    </>
+  )
 }
 
 export default HomePage
