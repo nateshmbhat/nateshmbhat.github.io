@@ -28,7 +28,6 @@ export const AnimatedProfileIcon = ({
       transition={{ duration: translateDuration }}
     >
       <motion.span
-        className="svg-shadow center-absolute"
         style={{ position: "absolute" }}
       >
         <motion.div

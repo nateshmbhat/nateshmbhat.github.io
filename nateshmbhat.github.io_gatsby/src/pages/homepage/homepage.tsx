@@ -30,7 +30,7 @@ const HomePage = () => {
   )
 }
 
-const CircularAnimatedProfileIcons = () => {
+const CircularAnimatedProfileIcons = ({size = 100} : {size:number}) => {
   const allIcons = [
     ProfileSite.github,
     ProfileSite.facebook,
@@ -42,13 +42,13 @@ const CircularAnimatedProfileIcons = () => {
     ProfileSite.linkedIn,
     ProfileSite.stackoverflow,
     ProfileSite.medium,
-  ].map(site => <ProfileIconBuilder profileSite={site} />)
+  ].map(site => <ProfileIconBuilder profileSite={site} size={size} />)
 
   return (
     <>
       {allIcons.map((icon, index) => {
         let anglePerIcon = 360 / allIcons.length
-        let maxDistance = 200
+        let maxDistance = 230
         let iconPosition = AppMathUtil.getOffsetFromAngle(
           anglePerIcon * index,
           maxDistance
